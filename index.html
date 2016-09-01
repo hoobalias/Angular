@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="js/angular.min.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <title>Angular Tutorial</title>
+    </head>
+
+    <div ng-app="myApp" ng-controller="myController" ng-init="firstName='Random'; lastName='Guest'">
+        <p>Input something in the input box:</p>
+        <p>First Name : <input type="text" ng-model="firstName"></p>
+        <p>Last Name : <input type="text" ng-model="lastName"></p>
+        </br>
+        Hey <p ng-bind="firstName"></p>!
+        <p>Your full name is {{firstName + " " + lastName}}!</p>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myController', function($scope) {
+            $scope.firstName = "John";
+            $scope.lastName = "Doe";
+        });
+        
+    </script>
+    </body>
+</html>
