@@ -6,22 +6,31 @@
         <title>Angular Tutorial</title>
     </head>
 
-    <div ng-app="myApp" ng-controller="myController" ng-init="firstName='Random'; lastName='Guest'">
-        <p>Input something in the input box:</p>
-        <p>First Name : <input type="text" ng-model="firstName"></p>
-        <p>Last Name : <input type="text" ng-model="lastName"></p>
+    <div ng-app="myApp" ng-controller="myController" ng-init="init()"> <!-- "firstName='Random'; lastName='Guest'; inputColor='lightblue'"> -->
+        <p>Input your first and last name:</p>
+        <p>First Name : <input type="text" ng-model="firstName" ng-style="{'background-color':'{{inputColor}}'}"></p>
+        <p>Last Name : <input type="text" ng-model="lastName" ng-style="{'background-color':'{{inputColor}}'}"></p>
         </br>
-        Hey <p ng-bind="firstName"></p>!
+        <p>Hey <span ng-bind="firstName"></span>!</p>
         <p>Your full name is {{firstName + " " + lastName}}!</p>
+
+        <p>Did you know 10 * 10 equals {{10 * 10}}?</p>
     </div>
 
     <script>
-        var app = angular.module('myApp', []);
-        app.controller('myController', function($scope) {
+        var module = angular.module('myApp', []);
+
+        module.controller('myController', function($scope) {
             $scope.firstName = "John";
             $scope.lastName = "Doe";
+            $scope.inputColor = "lightblue";
         });
-        
+
+//        $scope.init = function() {
+//            $scope.firstName = "Random";
+//            $scope.lastName = "Guest";
+//
+//        }
     </script>
     </body>
 </html>
