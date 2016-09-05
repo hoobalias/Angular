@@ -1,4 +1,4 @@
-module.controller('myController', function($scope, $interval) {
+module.controller('myController', function($scope, $interval, $http) {
     $scope.time = new Date().toLocaleTimeString();
     $interval(function () {
         $scope.time = new Date().toLocaleTimeString();
@@ -24,5 +24,10 @@ module.controller('myController', function($scope, $interval) {
         $scope.orderField = field;
     }
     
-    $scope.pokemonCellColor
+    $http.get("http://www.w3schools.com/angular/customers.php")
+         .then(function(response) {
+             $scope.customerData = response.data.records;
+         }), function(response) {
+             $scope.customerData = "Error with customer data!";
+         };
 });

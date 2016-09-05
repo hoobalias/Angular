@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <script src="js/angular.min.js"></script>
     <head>
         <meta charset="UTF-8">
@@ -44,19 +44,28 @@
                 {{ x }}
             </li>
         </ul>
-
         <hr>
+
         <p>Search for Pokemon by type: <input type="text" ng-model="pokemonFilter"></p></p>
+        <p><b>{{filtered.length}} results</b></p>
         <table border="1" width="100%">
             <tr>
                 <th ng-click="orderByField('name')">Name</th>
                 <th ng-click="orderByField('type')">Type</th>
             </tr>
-            <tr ng-repeat="x in pokemon | orderBy: orderField | filter: pokemonFilter" ng-class="{red: x.type == 'fire', blue: x.type == 'water', green: x.type == 'grass'}">
+            <tr ng-repeat="x in pokemon | orderBy: orderField | filter: pokemonFilter as filtered" ng-class="{red: x.type == 'fire', blue: x.type == 'water', green: x.type == 'grass'}">
                 <td ng-bind="x.name"></td>
                 <td ng-bind="x.type | uppercase"></td>
             </tr>
         </table>
+        <hr>
+
+        <ul>
+            <li ng-repeat="x in customerData">
+                {{x.Name + " is from " + x.Country}}
+            </li>
+        </ul>
+
     </div>
 
     <script src="js/myApp.js"></script>
