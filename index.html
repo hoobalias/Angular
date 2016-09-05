@@ -3,34 +3,51 @@
 <script src="js/angular.min.js"></script>
     <head>
         <meta charset="UTF-8">
-        <title>Angular Tutorial</title>
+        <title>My First Angular App</title>
     </head>
 
-    <div ng-app="myApp" ng-controller="myController" ng-init="init()"> <!-- "firstName='Random'; lastName='Guest'; inputColor='lightblue'"> -->
-        <p>Input your first and last name:</p>
-        <p>First Name : <input type="text" ng-model="firstName" ng-style="{'background-color':'{{inputColor}}'}"></p>
-        <p>Last Name : <input type="text" ng-model="lastName" ng-style="{'background-color':'{{inputColor}}'}"></p>
-        </br>
-        <p>Hey <span ng-bind="firstName"></span>!</p>
-        <p>Your full name is {{firstName + " " + lastName}}!</p>
+    <style>
+        input.ng-invalid {
+            background-color: lightcoral;
+        }
+    </style>
 
-        <p>Did you know 10 * 10 equals {{10 * 10}}?</p>
+    <body>
+    <div ng-app="myApp" ng-controller="myController"> <!-- ng-init="init()"> "firstName='Random'; lastName='Guest'; inputColor='lightblue'"> -->
+        <form name="form">
+            <p>Input your first and last name:</p>
+            <p>First Name : <input type="text" ng-model="firstName" ng-style="{'background-color':'{{inputColor}}'}" required></p>
+            <p>Last Name : <input type="text" ng-model="lastName" ng-style="{'background-color':'{{inputColor}}'}" required></p>
+            <p>Email Address: <input type="email" name="emailAddress" ng-model="email" required></p>
+        </form>
+        <hr>
+        <p>Hey{{" " + firstName + " " + lastName}}!</p>
+        <p>...your email is: <span ng-bind="email | uppercase"></span></p>
+        <span ng-show="form.emailAddress.$error.email">Not a valid e-mail address, please re-enter!</span>
+        <span ng-show="form.emailAddress.$valid">Good to go!</span>
+        <hr>
+        <p>Healthy ingredients you can use for the base of a meal are: </p>
+        <ul>
+            <li ng-repeat="x in foods">
+                {{ x }}
+            </li>
+        </ul>
+        <hr>
+        <p>Search for Pokemon by type: <input type="text" ng-model="pokemonFilter"></p></p>
+        <table border="1" width="100%">
+            <tr>
+                <th ng-click="orderByField('name')">Name</th>
+                <th ng-click="orderByField('type')">Type</th>
+            </tr>
+            <tr ng-repeat="x in pokemon | orderBy: orderField | filter: pokemonFilter">
+                <td ng-bind="x.name"></td>
+                <td ng-bind="x.type | uppercase"></td>
+            </tr>
+        </table>
     </div>
 
-    <script>
-        var module = angular.module('myApp', []);
+    <script src="js/myApp.js"></script>
+    <script src="js/myController.js"></script>
 
-        module.controller('myController', function($scope) {
-            $scope.firstName = "John";
-            $scope.lastName = "Doe";
-            $scope.inputColor = "lightblue";
-        });
-
-//        $scope.init = function() {
-//            $scope.firstName = "Random";
-//            $scope.lastName = "Guest";
-//
-//        }
-    </script>
     </body>
 </html>
