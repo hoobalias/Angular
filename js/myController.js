@@ -1,4 +1,9 @@
-module.controller('myController', function($scope) {
+module.controller('myController', function($scope, $interval) {
+    $scope.time = new Date().toLocaleTimeString();
+    $interval(function () {
+        $scope.time = new Date().toLocaleTimeString();
+    }, 1000);
+
     $scope.email = "example@example.com";
     
     $scope.inputColor = "lightgreen";
@@ -18,4 +23,6 @@ module.controller('myController', function($scope) {
     $scope.orderByField = function (field) {
         $scope.orderField = field;
     }
+    
+    $scope.pokemonCellColor
 });
