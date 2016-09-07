@@ -65,6 +65,14 @@
                 {{x.Name + " is from " + x.Country}}
             </li>
         </ul>
+        <hr>
+
+        <select ng-model="selectedPokemon" ng-options="x as x.name for x in pokemon"></select>
+        <p>You've selected {{selectedPokemon.name}}, which is a {{selectedPokemon.type}} type.</p>
+
+        <select ng-model="selectedExercise" ng-options="x for x in exercises"></select>
+        <p>You've selected {{selectedExercise}}.</p>
+        <hr>
 
     </div>
 
