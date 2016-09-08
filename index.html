@@ -4,22 +4,8 @@
     <head>
         <meta charset="UTF-8">
         <title>My First Angular App</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
-
-    <style>
-        input.ng-invalid {
-            background-color: lightcoral;
-        }
-        .red {
-            background-color: lightcoral;
-        }
-        .blue {
-            background-color: lightblue;
-        }
-        .green {
-            background-color: lightgreen;
-        }
-    </style>
 
     <body>
     <div ng-app="myApp" ng-controller="myController"> <!-- ng-init="init()"> "firstName='Random'; lastName='Guest'; inputColor='lightblue'"> -->
@@ -46,7 +32,8 @@
         </ul>
         <hr>
 
-        <p>Search for Pokemon by type: <input type="text" ng-model="pokemonFilter"></p></p>
+        <p>Search for Pokemon by Name or Type: <input type="text" ng-model="pokemonFilter"></p></p>
+        <input type="checkbox" ng-model="fireSwitch"> Fire <input type="checkbox" ng-model="waterSwitch"> Water <input type="checkbox" ng-model="grassSwitch"> Grass
         <p><b>{{filtered.length}} results</b></p>
         <table border="1" width="100%">
             <tr>
@@ -54,8 +41,8 @@
                 <th ng-click="orderByField('type')">Type</th>
             </tr>
             <tr ng-repeat="x in pokemon | orderBy: orderField | filter: pokemonFilter as filtered" ng-class="{red: x.type == 'fire', blue: x.type == 'water', green: x.type == 'grass'}">
-                <td ng-bind="x.name"></td>
-                <td ng-bind="x.type | uppercase"></td>
+                <td ng-model="rowName" ng-bind="x.name" ng-show="isVisible(x.type)"></td>
+                <td ng-model="rowType" ng-bind="x.type | uppercase" ng-show="isVisible(x.type)"></td>
             </tr>
         </table>
         <hr>

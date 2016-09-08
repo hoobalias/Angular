@@ -1,0 +1,15 @@
+input.ng-invalid {
+    background-color: lightcoral;
+}
+
+.red {
+    background-color: lightcoral;
+}
+
+.blue {
+    background-color: lightblue;
+}
+
+.green {
+    background-color: lightgreen;
+}

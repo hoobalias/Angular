@@ -19,7 +19,10 @@ module.controller('myController', function($scope, $interval, $http) {
                       {type: 'grass', name:'Bulbasaur'},
                       {type: 'grass', name:'Victreebell'},
                       {type: 'grass', name:'Exeggutor' }];
-    
+    $scope.isVisible = function () {
+        ((x.type == "fire") && fireSwitch) || ((x.type == "water") && waterSwitch) || ((x.type == "grass") && grassSwitch);
+    };
+
     $scope.orderByField = function (field) {
         $scope.orderField = field;
     }
