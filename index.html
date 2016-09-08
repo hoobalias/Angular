@@ -41,8 +41,8 @@
                 <th ng-click="orderByField('type')">Type</th>
             </tr>
             <tr ng-repeat="x in pokemon | orderBy: orderField | filter: pokemonFilter as filtered" ng-class="{red: x.type == 'fire', blue: x.type == 'water', green: x.type == 'grass'}">
-                <td ng-model="rowName" ng-bind="x.name" ng-show="isVisible(x.type)"></td>
-                <td ng-model="rowType" ng-bind="x.type | uppercase" ng-show="isVisible(x.type)"></td>
+                <td ng-model="rowName" ng-bind="x.name" ng-show="((x.type == 'fire') && fireSwitch) || ((x.type == 'water') && waterSwitch) || ((x.type == 'grass') && grassSwitch)"></td>
+                <td ng-model="rowType" ng-bind="x.type | uppercase" ng-show="((x.type == 'fire') && fireSwitch) || ((x.type == 'water') && waterSwitch) || ((x.type == 'grass') && grassSwitch)"></td>
             </tr>
         </table>
         <hr>

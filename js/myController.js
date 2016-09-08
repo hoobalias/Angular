@@ -19,14 +19,10 @@ module.controller('myController', function($scope, $interval, $http) {
                       {type: 'grass', name:'Bulbasaur'},
                       {type: 'grass', name:'Victreebell'},
                       {type: 'grass', name:'Exeggutor' }];
-    
-    $scope.fireSwitch = false;
-    $scope.waterSwitch = false;
-    $scope.grassSwitch = false;
-    
-    $scope.isVisible = function (type) {
-        ((type == "fire") && fireSwitch) || ((type == "water") && waterSwitch) || ((type == "grass") && grassSwitch);
-    };
+
+    $scope.fireSwitch = true;
+    $scope.waterSwitch = true;
+    $scope.grassSwitch = true;
 
     $scope.orderByField = function (field) {
         $scope.orderField = field;
