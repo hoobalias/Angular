@@ -3,9 +3,13 @@ module.controller('myController', function($scope, $interval, $http) {
     $interval(function () {
         $scope.time = new Date().toLocaleTimeString();
     }, 1000);
-
-    $scope.email = "example@example.com";
     
+    $scope.defaultUser = {name:"Ash Ketchum", email:"AKetch@kanto.com"};
+    $scope.resetNameAndEmail = function() {
+        $scope.user = angular.copy($scope.defaultUser);
+    }
+    $scope.resetNameAndEmail();
+
     $scope.inputColor = "lightgreen";
     
     $scope.foods = ["Potatoes", "Rice", "Sweet Potatoes", "Bread", "Beans"];

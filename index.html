@@ -15,15 +15,17 @@
 
         <form name="form">
             <p>Input your first and last name:</p>
-            <p>Name : <input type="text" ng-model="name" ng-style="{'background-color':'{{inputColor}}'}" required></p>
-            <p>Email Address: <input type="email" name="emailAddress" ng-model="email" required></p>
+            <p>Name : <input type="text" ng-model="user.name" ng-style="{'background-color':'{{inputColor}}'}" required></p>
+            <p>Email Address: <input type="email" ng-model="user.email" name="emailAddress" required></p>
+            <button ng-click="resetNameAndEmail()">Reset Fields</button>
         </form>
 
-        <p>Hey{{" " + name}}!</p>
-        <p>...your email is: <span ng-bind="email | uppercase"></span></p>
+        <p>Hey{{" " + user.name}}!</p>
+        <p>...your email is: <span ng-bind="user.email | uppercase"></span></p>
         <span ng-show="form.emailAddress.$error.email">Not a valid e-mail address, please re-enter!</span>
         <span ng-show="form.emailAddress.$valid">Good to go!</span>
         <hr>
+
         <p>Healthy ingredients you can use for the base of a meal are: </p>
         <ul>
             <li ng-repeat="x in foods">
