@@ -26,6 +26,9 @@
         <span ng-show="form.email.$untouched || !form.email.$valid">Valid email is required.</span>
         <!--<span ng-show="form.emailAddress.$error.email">Not a valid e-mail address, please re-enter!</span>-->
         <span ng-show="form.name.$valid && form.emailAddress.$valid && !form.name.$untouched && !form.email.$untouched">Good to go!</span>
+        <p>
+            <input type="submit" ng-disabled="!form.name.$valid || !form.email.$valid">
+        </p>
         <hr>
 
         <p>Healthy ingredients you can use for the base of a meal are: </p>
