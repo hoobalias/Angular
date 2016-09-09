@@ -10,7 +10,7 @@ module.controller('myController', function($scope, $interval, $http) {
     }
     $scope.resetNameAndEmail();
 
-    $scope.inputColor = "lightgreen";
+    $scope.inputColor = "pink";
     
     $scope.foods = ["Potatoes", "Rice", "Sweet Potatoes", "Bread", "Beans"];
 

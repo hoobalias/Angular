@@ -2,6 +2,17 @@ input.ng-invalid {
     background-color: lightcoral;
 }
 
+input.ng-valid {
+    background-color: lightgreen;
+}
+
+form.ng-pristine {
+    background-color: lightblue;
+}
+form.ng-dirty {
+    background-color: pink;
+}
+
 .red {
     background-color: lightcoral;
 }
@@ -11,5 +22,5 @@ input.ng-invalid {
 }
 
 .green {
-    background-color: lightgreen;
+    background-color: limegreen;
 }

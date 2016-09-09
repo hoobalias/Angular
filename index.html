@@ -15,15 +15,17 @@
 
         <form name="form">
             <p>Input your first and last name:</p>
-            <p>Name : <input type="text" ng-model="user.name" ng-style="{'background-color':'{{inputColor}}'}" required></p>
-            <p>Email Address: <input type="email" ng-model="user.email" name="emailAddress" required></p>
+            <p>Name : <input type="text" ng-model="user.name" name="name" required></p>
+            <p>Email Address: <input type="email" ng-model="user.email" name="email" required></p>
             <button ng-click="resetNameAndEmail()">Reset Fields</button>
         </form>
 
         <p>Hey{{" " + user.name}}!</p>
         <p>...your email is: <span ng-bind="user.email | uppercase"></span></p>
-        <span ng-show="form.emailAddress.$error.email">Not a valid e-mail address, please re-enter!</span>
-        <span ng-show="form.emailAddress.$valid">Good to go!</span>
+        <span ng-show="form.name.$untouched || !form.name.$valid">Valid name is required.</span>
+        <span ng-show="form.email.$untouched || !form.email.$valid">Valid email is required.</span>
+        <!--<span ng-show="form.emailAddress.$error.email">Not a valid e-mail address, please re-enter!</span>-->
+        <span ng-show="form.name.$valid && form.emailAddress.$valid && !form.name.$untouched && !form.email.$untouched">Good to go!</span>
         <hr>
 
         <p>Healthy ingredients you can use for the base of a meal are: </p>
@@ -34,7 +36,8 @@
         </ul>
         <hr>
 
-        <p>Search for Pokemon by Name or Type: <input type="text" ng-model="pokemonFilter"></p></p>
+        <p>Search for Pokemon by Name or Type: <input type="text" ng-model="pokemonFilter" ng-style="{'background-color':'{{inputColor}}'}"></p>
+        </br>
         <input type="checkbox" ng-model="fireSwitch"> Fire <input type="checkbox" ng-model="waterSwitch"> Water <input type="checkbox" ng-model="grassSwitch"> Grass
         <p><b>{{filtered.length}} results</b></p>
         <table border="1" width="100%">
