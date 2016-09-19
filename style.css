@@ -1,11 +1,10 @@
+/* Form Style */
 input.ng-invalid {
     background-color: lightcoral;
 }
-
 input.ng-valid {
     background-color: lightgreen;
 }
-
 form.ng-pristine {
     background-color: lightblue;
 }
@@ -13,6 +12,7 @@ form.ng-dirty {
     background-color: pink;
 }
 
+/* Table Style */
 .red {
     background-color: lightcoral;
 }
@@ -23,4 +23,12 @@ form.ng-dirty {
 
 .green {
     background-color: limegreen;
+}
+
+div {
+    transition: all linear 0.5s;
+    height: 130px;
+}
+.ng-hide {
+    height: 0;
 }

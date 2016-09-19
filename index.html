@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <script src="js/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
     <head>
         <meta charset="UTF-8">
         <title>My First Angular App</title>
@@ -31,12 +33,15 @@
         </p>
         <hr>
 
-        <p>Healthy ingredients you can use for the base of a meal are: </p>
-        <ul>
-            <li ng-repeat="x in foods">
-                {{ x }}
-            </li>
-        </ul>
+        <p><b>{{myCheck == true ? "Show" : "Hide"}} this section: <input type="checkbox" ng-model="myCheck"></b></p>
+        <div ng-hide="myCheck">
+            <p>Healthy ingredients you can use for the base of a meal are: </p>
+            <ul>
+                <li ng-repeat="x in foods">
+                    {{ x }}
+                </li>
+            </ul>
+        </div>
         <hr>
 
         <p>Search for Pokemon by Name or Type: <input type="text" ng-model="pokemonFilter" ng-style="{'background-color':'{{inputColor}}'}"></p>
