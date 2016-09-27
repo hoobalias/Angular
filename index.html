@@ -2,6 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <script src="js/angular.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
 
     <head>
         <meta charset="UTF-8">
@@ -10,6 +11,12 @@
     </head>
 
     <body>
+    <a href="instinct">INSTINCT</a>
+    <a href="mystic">MYSTIC</a>
+    <a href="valor">VALOR</a>
+
+    <div ng-view></div>
+
     <div ng-app="myApp" ng-controller="myController"> <!-- ng-init="init()"> "firstName='Random'; lastName='Guest'; inputColor='lightblue'"> -->
 
         <h1 ng-bind="time" align="center"></h1>
