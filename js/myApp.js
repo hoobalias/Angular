@@ -1,6 +1,6 @@
-var module = angular.module('myApp', ["ngRoute"]);
+var module = angular.module("myApp", ["ngRoute"]);
 
-app.config(function ($routeProvider) {
+module.config(function ($routeProvider) {
     $routeProvider
         .when("/instinct", {
             templateUrl: "../templates/instinct.html"
